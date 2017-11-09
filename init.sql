@@ -1,43 +1,43 @@
---ÓÃ»§±í--
+--ç”¨æˆ·è¡¨--
 create table USER(
 		uid int(11) not null auto_increment,
-		username varchar(100) not null default "" comment "ÓÃ»§Ãû",
-		password varchar(100) not null default "" comment "ÃÜÂë",
-		avatar varchar(255) comment "Í·ÏñµØÖ·",	
-		descriprion varchar(255) comment "ÃèÊö",
-		follow int comment "¹Ø×¢ÈËÊı",
-		followed int comment "±»ÈË¹Ø×¢",
-		phone varchar(20) comment "µç»°",
-		address varchar(200) comment "×¡Ö·",
-		create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '´´½¨Ê±¼ä',
-		update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '¸üĞÂÊ±¼ä',
+		username varchar(100) not null default "" comment "ç”¨æˆ·å",
+		password varchar(100) not null default "" comment "å¯†ç ",
+		avatar varchar(255) comment "å¤´åƒåœ°å€",	
+		descriprion varchar(255) comment "æè¿°",
+		follow int comment "å…³æ³¨äººæ•°",
+		followed int comment "è¢«äººå…³æ³¨",
+		phone varchar(20) comment "ç”µè¯",
+		address varchar(200) comment "ä½å€",
+		create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'åˆ›å»ºæ—¶é—´',
+		update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'æ›´æ–°æ—¶é—´',
 		primary key(uid)
 )ENGINE = INNODB DEFAULT CHARSET=utf8;
---È¨ÏŞ±í--
+--æƒé™è¡¨--
 create table permission(
 		pid int(11) not null auto_increment,
-		name varchar(255) not null default "" comment "È¨ÏŞÃû³Æ",
-		url varchar(255) default "" comment "À¹½ØµÄURL",
-		create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '´´½¨Ê±¼ä',
-		update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '¸üĞÂÊ±¼ä',
+		name varchar(255) not null default "" comment "æƒé™åç§°",
+		url varchar(255) default "" comment "æ‹¦æˆªçš„URL",
+		create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'åˆ›å»ºæ—¶é—´',
+		update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'æ›´æ–°æ—¶é—´',
 		primary key(pid)
 )ENGINE = INNODB DEFAULT CHARSET=utf8;
---½ÇÉ«±í--
+--è§’è‰²è¡¨--
 create table role(
 		rid int(11) not null auto_increment,
-		rname varchar(255) not null default "" comment "½ÇÉ«Ãû³Æ",
-		create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '´´½¨Ê±¼ä',
-		update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '¸üĞÂÊ±¼ä',
+		rname varchar(255) not null default "" comment "è§’è‰²åç§°",
+		create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'åˆ›å»ºæ—¶é—´',
+		update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'æ›´æ–°æ—¶é—´',
 		primary key(rid)
 )ENGINE = INNODB DEFAULT CHARSET=utf8;
--- È¨ÏŞ½ÇÉ«¹ØÏµ±í --
+-- æƒé™è§’è‰²å…³ç³»è¡¨ --
 CREATE TABLE permission_role (
   rid int(11) NOT NULL ,
   pid int(11) NOT NULL ,
   KEY idx_rid (rid),
   KEY idx_pid (pid)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
--- ÓÃ»§½ÇÉ«¹ØÏµ±í --
+-- ç”¨æˆ·è§’è‰²å…³ç³»è¡¨ --
 CREATE TABLE user_role (
   uid int(11) NOT NULL ,
   rid int(11) NOT NULL ,
