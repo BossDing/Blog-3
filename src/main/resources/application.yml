@@ -4,8 +4,14 @@ spring:
     url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: password
+  mvc:
+    view:
+      prefix: /pages/
+      suffix: .jsp
 
 mybatis:
   mapper-locations: classpath:/mapper/*.xml
   type-aliases-package: com.beautifulsoup.bean.db
+
+
 

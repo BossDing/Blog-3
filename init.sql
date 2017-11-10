@@ -19,17 +19,18 @@ create table permission(
 		url varchar(255) default "" comment "有权的URL",
 		primary key(pid)
 )ENGINE = INNODB DEFAULT CHARSET=utf8;
-insert INTO permission VALUES (1,"admin","/user/*,/");
+insert into permission VALUES (1,"Add","/user/*,/");
+insert into permission VALUES (2,"Delete","/user/*,/");
+insert into permission VALUES (3,"Update","/user/*,/");
+insert into permission VALUES (4,"Query","/user/*,/");
 -- 角色表--
 create table role(
 		rid int(11) not null auto_increment,
 		rname varchar(255) not null default "" comment "角色名称",
 		primary key(rid)
 )ENGINE = INNODB DEFAULT CHARSET=utf8;
-insert into role VALUES (1,"Add");
-insert into role VALUES (2,"Delete");
-insert into role VALUES (3,"Update");
-insert into role VALUES (4,"Query");
+insert INTO role VALUES (1,"admin");
+
 -- 权限角色关系表 --
 CREATE TABLE permission_role (
   rid int(11) NOT NULL ,
