@@ -1,11 +1,10 @@
 package com.beautifulsoup.bean.db;
 
-/**
- * Created by BeautifulSoup on 2017/11/9.
- */
 public class Permission {
     private Integer pid;
+
     private String name;
+
     private String url;
 
     public Integer getPid() {
@@ -21,7 +20,7 @@ public class Permission {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
     public String getUrl() {
@@ -29,6 +28,6 @@ public class Permission {
     }
 
     public void setUrl(String url) {
-        this.url = url;
+        this.url = url == null ? null : url.trim();
     }
 }

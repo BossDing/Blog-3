@@ -1,9 +1,9 @@
 package com.beautifulsoup.bean.db;
 
-public class Role {
+public class PermissionRole {
     private Integer rid;
 
-    private String rname;
+    private Integer pid;
 
     public Integer getRid() {
         return rid;
@@ -13,11 +13,11 @@ public class Role {
         this.rid = rid;
     }
 
-    public String getRname() {
-        return rname;
+    public Integer getPid() {
+        return pid;
     }
 
-    public void setRname(String rname) {
-        this.rname = rname == null ? null : rname.trim();
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 }

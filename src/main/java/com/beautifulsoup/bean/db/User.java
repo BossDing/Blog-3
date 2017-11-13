@@ -1,22 +1,23 @@
 package com.beautifulsoup.bean.db;
 
-import java.util.HashSet;
-import java.util.Set;
-
-/**
- * Created by BeautifulSoup on 2017/11/9.
- */
 public class User {
     private Integer uid;
+
     private String username;
+
     private String password;
+
     private String avatar;
+
     private String description;
+
     private Integer follow;
+
     private Integer followed;
+
     private String phone;
+
     private String address;
-    private Set<Role> roles=new HashSet<>();
 
     public Integer getUid() {
         return uid;
@@ -31,7 +32,7 @@ public class User {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username = username == null ? null : username.trim();
     }
 
     public String getPassword() {
@@ -39,7 +40,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = password == null ? null : password.trim();
     }
 
     public String getAvatar() {
@@ -47,7 +48,7 @@ public class User {
     }
 
     public void setAvatar(String avatar) {
-        this.avatar = avatar;
+        this.avatar = avatar == null ? null : avatar.trim();
     }
 
     public String getDescription() {
@@ -55,7 +56,7 @@ public class User {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.description = description == null ? null : description.trim();
     }
 
     public Integer getFollow() {
@@ -79,7 +80,7 @@ public class User {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
+        this.phone = phone == null ? null : phone.trim();
     }
 
     public String getAddress() {
@@ -87,30 +88,6 @@ public class User {
     }
 
     public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "uid=" + uid +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", description='" + description + '\'' +
-                ", follow=" + follow +
-                ", followed=" + followed +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", roles=" + roles +
-                '}';
+        this.address = address == null ? null : address.trim();
     }
 }
