@@ -305,4 +305,8 @@
       WHERE u.username=#{username}
     </select>
 
+    <select id="findAllUsers" resultType="com.beautifulsoup.bean.db.User">
+        SELECT user.* from user
+    </select>
+
 </mapper>

@@ -8,10 +8,14 @@ spring:
     view:
       prefix: /pages/
       suffix: .jsp
+#    static-path-pattern: /assets/
+
 
 mybatis:
   mapper-locations: classpath:/mapper/*.xml
   type-aliases-package: com.beautifulsoup.bean.db
+server:
+  port: 8881
 
 
 

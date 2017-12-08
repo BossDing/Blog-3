@@ -18,6 +18,20 @@ public class User {
     private String address;
     private Set<Role> roles=new HashSet<>();
 
+    public User() {
+    }
+
+    public User(String username, String password, String avatar, String description, Integer follow, Integer followed, String phone, String address) {
+        this.username = username;
+        this.password = password;
+        this.avatar = avatar;
+        this.description = description;
+        this.follow = follow;
+        this.followed = followed;
+        this.phone = phone;
+        this.address = address;
+    }
+
     public Integer getUid() {
         return uid;
     }

@@ -15,7 +15,7 @@ public class Article {
 
     private String stars;
 
-    private Integer commentId;
+    private Integer categoryId;
 
     private Integer authorId;
 
@@ -71,12 +71,12 @@ public class Article {
         this.stars = stars == null ? null : stars.trim();
     }
 
-    public Integer getCommentId() {
-        return commentId;
+    public Integer getCategoryId() {
+        return categoryId;
     }
 
-    public void setCommentId(Integer commentId) {
-        this.commentId = commentId;
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 
     public Integer getAuthorId() {

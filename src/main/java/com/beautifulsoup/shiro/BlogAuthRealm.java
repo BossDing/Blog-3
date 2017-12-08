@@ -57,6 +57,11 @@ public class BlogAuthRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) authenticationToken;
+        if (usernamePasswordToken==null){
+            System.out.println("用户信息为空!");
+        }else{
+            System.out.println();
+        }
         String username = usernamePasswordToken.getUsername();
         User user=userService.findUserByUsername(username);
         return new SimpleAuthenticationInfo(user,user.getPassword(),this.getClass().getName());

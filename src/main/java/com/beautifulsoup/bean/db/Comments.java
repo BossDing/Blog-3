@@ -7,6 +7,8 @@ public class Comments {
 
     private String content;
 
+    private Integer articleId;
+
     private Integer userId;
 
     private Date createTime;
@@ -25,6 +27,14 @@ public class Comments {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public Integer getArticleId() {
+        return articleId;
+    }
+
+    public void setArticleId(Integer articleId) {
+        this.articleId = articleId;
     }
 
     public Integer getUserId() {

@@ -515,63 +515,63 @@ public class ArticleExample {
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdIsNull() {
-            addCriterion("comment_id is null");
+        public Criteria andCategoryIdIsNull() {
+            addCriterion("category_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdIsNotNull() {
-            addCriterion("comment_id is not null");
+        public Criteria andCategoryIdIsNotNull() {
+            addCriterion("category_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdEqualTo(Integer value) {
-            addCriterion("comment_id =", value, "commentId");
+        public Criteria andCategoryIdEqualTo(Integer value) {
+            addCriterion("category_id =", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdNotEqualTo(Integer value) {
-            addCriterion("comment_id <>", value, "commentId");
+        public Criteria andCategoryIdNotEqualTo(Integer value) {
+            addCriterion("category_id <>", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdGreaterThan(Integer value) {
-            addCriterion("comment_id >", value, "commentId");
+        public Criteria andCategoryIdGreaterThan(Integer value) {
+            addCriterion("category_id >", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("comment_id >=", value, "commentId");
+        public Criteria andCategoryIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("category_id >=", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdLessThan(Integer value) {
-            addCriterion("comment_id <", value, "commentId");
+        public Criteria andCategoryIdLessThan(Integer value) {
+            addCriterion("category_id <", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdLessThanOrEqualTo(Integer value) {
-            addCriterion("comment_id <=", value, "commentId");
+        public Criteria andCategoryIdLessThanOrEqualTo(Integer value) {
+            addCriterion("category_id <=", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdIn(List<Integer> values) {
-            addCriterion("comment_id in", values, "commentId");
+        public Criteria andCategoryIdIn(List<Integer> values) {
+            addCriterion("category_id in", values, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdNotIn(List<Integer> values) {
-            addCriterion("comment_id not in", values, "commentId");
+        public Criteria andCategoryIdNotIn(List<Integer> values) {
+            addCriterion("category_id not in", values, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdBetween(Integer value1, Integer value2) {
-            addCriterion("comment_id between", value1, value2, "commentId");
+        public Criteria andCategoryIdBetween(Integer value1, Integer value2) {
+            addCriterion("category_id between", value1, value2, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("comment_id not between", value1, value2, "commentId");
+        public Criteria andCategoryIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("category_id not between", value1, value2, "categoryId");
             return (Criteria) this;
         }
 

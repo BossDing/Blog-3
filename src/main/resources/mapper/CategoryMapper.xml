@@ -134,6 +134,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+
   <update id="updateByExampleSelective" parameterType="map" >
     update category
     <set >
@@ -178,4 +179,9 @@
       description = #{description,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="findAllCategories" resultType="com.beautifulsoup.bean.db.Category">
+     SELECT category.* FROM category
+  </select>
+
 </mapper>
