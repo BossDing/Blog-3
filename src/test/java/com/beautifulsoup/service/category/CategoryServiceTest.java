@@ -3,8 +3,12 @@ package com.beautifulsoup.service.category;
 import com.beautifulsoup.BlogApplicationTests;
 import com.beautifulsoup.bean.db.Category;
 import com.beautifulsoup.service.CategoryService;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 /**
  * Created by BeautifulSoup on 2017/12/8.
@@ -32,6 +36,15 @@ public class CategoryServiceTest extends BlogApplicationTests{
         categoryService.insert(category4);
         categoryService.insert(category5);
     }
+
+    @Test
+    public void findAllCategories(){
+        List<Category> categories=categoryService.findAllCategories();
+        for (Category category:categories){
+            System.out.println(ReflectionToStringBuilder.toString(category, ToStringStyle.MULTI_LINE_STYLE));
+        }
+    }
+
 
 
 }

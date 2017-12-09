@@ -27,7 +27,6 @@
             <div class="pusher dimmed">
                 <div class="ui basic segment">
 
-
                     <table class="ui fixed table" style="width: 1200px;margin-top: 100px">
                         <thead>
                             <tr>

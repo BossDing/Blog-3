@@ -23,6 +23,20 @@ public class Article {
 
     private String content;
 
+    public Article() {
+    }
+
+    public Article(String title, String subtitle, String description, String stars, Integer categoryId, Integer authorId, Date createTime, String content) {
+        this.title = title;
+        this.subtitle = subtitle;
+        this.description = description;
+        this.stars = stars;
+        this.categoryId = categoryId;
+        this.authorId = authorId;
+        this.createTime = createTime;
+        this.content = content;
+    }
+
     public Integer getId() {
         return id;
     }

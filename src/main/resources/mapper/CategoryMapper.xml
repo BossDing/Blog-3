@@ -181,7 +181,7 @@
   </update>
 
   <select id="findAllCategories" resultType="com.beautifulsoup.bean.db.Category">
-     SELECT category.* FROM category
+     SELECT category.id id,category.category_name categoryName,category.description description FROM category
   </select>
 
 </mapper>

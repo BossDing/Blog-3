@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -28,65 +29,45 @@
 
 
 
-                    <table class="ui striped table" style="margin-top: 100px;width: 1200px">
+                    <table class="ui striped table" style="margin-top: 60px;width: 1200px">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Date Joined</th>
-                            <th>E-mail</th>
-                            <th>Called</th>
+                            <th>文章标题</th>
+                            <th>文章副标题</th>
+                            <th>文章描述</th>
+                            <th>文章喜欢数</th>
+                            <th>文章创建时间</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>约翰·莉丽亚</td>
-                            <td>2013年9月14日</td>
-                            <td>jhlilk22@yahoo.com</td>
-                            <td>否</td>
-                        </tr>
-                        <tr>
-                            <td>杰米·哈灵顿</td>
-                            <td>2014年1月11日</td>
-                            <td>jamieharingonton@yahoo.com</td>
-                            <td>是</td>
-                        </tr>
-                        <tr>
-                            <td>吉尔·刘易斯</td>
-                            <td>2014年5月11日</td>
-                            <td>jilsewris22@yahoo.com</td>
-                            <td>是</td>
-                        </tr>
-                        <tr>
-                            <td>约翰·莉丽亚</td>
-                            <td>2013年9月14日</td>
-                            <td>jhlilk22@yahoo.com</td>
-                            <td>否</td>
-                        </tr>
-                        <tr>
-                            <td>约翰·莉丽亚</td>
-                            <td>2013年9月14日</td>
-                            <td>jhlilk22@yahoo.com</td>
-                            <td>否</td>
-                        </tr>
-                        <tr>
-                            <td>杰米·哈灵顿</td>
-                            <td>2014年1月11日</td>
-                            <td>jamieharingonton@yahoo.com</td>
-                            <td>是</td>
-                        </tr>
-                        <tr>
-                            <td>吉尔·刘易斯</td>
-                            <td>2014年5月11日</td>
-                            <td>jilsewris22@yahoo.com</td>
-                            <td>是</td>
-                        </tr>
-                        <tr>
-                            <td>约翰·莉丽亚</td>
-                            <td>2013年9月14日</td>
-                            <td>jhlilk22@yahoo.com</td>
-                            <td>否</td>
-                        </tr>
+                        <c:forEach items="${articles}" var="article">
+                            <tr>
+                                <td>${article.title}</td>
+                                <td>${article.subtitle}</td>
+                                <td>${article.description}</td>
+                                <td>${article.stars}</td>
+                                <td>${article.createTime}</td>
+                            </tr>
+                        </c:forEach>
+
                         </tbody>
+                        <tfoot>
+                        <tr>
+                            <th colspan="5">
+                                <div class="ui right floated pagination menu">
+                                    <a class="icon item">
+                                        <i class="left chevron icon"></i>
+                                    </a>
+                                    <c:forEach begin="1" end="${totalPage}" var="i">
+                                        <a class="item">${i}</a>
+                                    </c:forEach>
+                                    <a class="icon item">
+                                        <i class="right chevron icon"></i>
+                                    </a>
+                                </div>
+                            </th>
+                        </tr>
+                        </tfoot>
                     </table>
 
 
