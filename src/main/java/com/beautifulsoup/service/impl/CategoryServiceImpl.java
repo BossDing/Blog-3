@@ -33,4 +33,11 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> findAllCategories() {
         return categoryMapper.findAllCategories();
     }
+
+    @Override
+    public Category findCategoryById(Integer id) {
+        return categoryMapper.selectByPrimaryKey(id);
+    }
+
+
 }

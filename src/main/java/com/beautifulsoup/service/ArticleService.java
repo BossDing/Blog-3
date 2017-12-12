@@ -12,4 +12,5 @@ public interface ArticleService {
     int getArticlesCount();
     int insertArticle(Article article);
     List<Article> listArticlesByPage(Integer pageNum);
+    Article findArticleById(Integer id);
 }

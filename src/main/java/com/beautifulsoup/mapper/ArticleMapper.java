@@ -11,4 +11,5 @@ public interface ArticleMapper {
     int insertArticle(Article article);
     List<Article> listArticlesByPage(Integer pageNum);
     int getArticlesCount();
+    Article selectArticleById(Integer id);
 }

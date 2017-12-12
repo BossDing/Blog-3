@@ -21,7 +21,7 @@
         <a class="item" href="${pageContext.request.contextPath}/category/listall"><i class="block layout"></i> 文章分类
         </a>
         <a class="item" href="${pageContext.request.contextPath}/article/listall"><i class="smile"></i> 所有文章 </a>
-        <a class="item"><i class="calendar "></i> 关于我们 </a>
+        <a class="item" href="${pageContext.request.contextPath}/about/creator"><i class="calendar "></i> 关于我们 </a>
     </div>
     <div class="pusher">
         <div class="ui basic segment">
@@ -34,7 +34,7 @@
                         <th>电话</th>
                         <th>居住地址</th>
                         <th>关注数</th>
-                        <th>被关注数</th>
+                        <th>用户管理</th>
                         </thead>
                         <tbody>
                         <c:forEach items="${users}" var="user">
@@ -44,7 +44,10 @@
                                 <td>${user.phone}</td>
                                 <td>${user.address}</td>
                                 <td>${user.follow}</td>
-                                <td>${use.followed}</td>
+                                <td>
+                                    <a class="ui green basic button" href="${pageContext.request.contextPath}/user/update?uid=${user.uid}">修改</a>
+                                    <a class="ui red basic button" href="${pageContext.request.contextPath}/user/delete?uid=${user.uid}">删除</a>
+                                </td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -52,19 +55,9 @@
                         <tr>
                             <th colspan="6">
                                 <div class="ui right floated pagination menu">
-                                    <a class="icon item">
-                                        <i class="left chevron icon"></i>
-                                    </a>
-                                    <a class="item">1</a>
-                                    <a class="item">2</a>
-                                    <a class="item">3</a>
-                                    <a class="item">4</a>
-                                    <a class="item">4</a>
-                                    <a class="item">4</a>
-                                    <a class="item">4</a>
-                                    <a class="icon item">
-                                        <i class="right chevron icon"></i>
-                                    </a>
+                                    <c:forEach begin="1" end="${totalPage}" var="i">
+                                        <a class="item" href="${pageContext.request.contextPath}/user/listbypage?pageNum=${i}">${i}</a>
+                                    </c:forEach>
                                 </div>
                             </th>
                         </tr>

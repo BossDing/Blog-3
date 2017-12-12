@@ -19,6 +19,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @ModelAttribute("totalPage")
+    public int getTotalPage(){
+        return userService.getAllUsersCount();
+    }
+
     @RequestMapping(value = "/login")
     public String login(){
         return "login";
@@ -42,8 +47,22 @@ public class UserController {
 
     @RequestMapping(value = "/listall")
     public String listAllUsers(Model model){
-        List<User> userList=userService.findAllUsers();
+        List<User> userList=userService.listAllUsersByPage(1);
         model.addAttribute("users",userList);
         return "manage/manage-user";
+    }
+
+    @RequestMapping(value = "/listbypage")
+    public String listUserByPage(Model model,@RequestParam(value = "pageNum",required = false,defaultValue = "1")Integer pageNum){
+        List<User> userList=userService.listAllUsersByPage(pageNum);
+        model.addAttribute("users",userList);
+        return "manage/manage-user";
+    }
+
+    @RequestMapping(value = "/update")
+    public String updateUser(@RequestParam("uid")Integer uid,Model model){
+        User user=userService.findUserByUid(uid);
+        model.addAttribute("user",user);
+        return "manage/manage-user-update";
     }
 }

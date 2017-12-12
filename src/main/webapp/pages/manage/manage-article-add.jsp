@@ -14,34 +14,30 @@
 <div style="width: 500px;height:700px;position: absolute;left: 50%;top: 50%;margin-left: -250px;margin-top: -350px">
     <div class="ui attached message">
         <div class="header">Welcome to Edit!</div>
-        <p>填写下面的表单来修改当前账户</p>
+        <p>填写下面的表单来添加新的账户</p>
     </div>
     <form class="ui form attached fluid segment celled">
         <div class="two fields">
             <div class="field">
-                <label>用户名</label>
+                <label>Username</label>
                 <input placeholder="Username" type="text">
             </div>
             <div class="field">
-                <label>密码</label>
+                <label>Password</label>
                 <input placeholder="Password" type="password">
             </div>
         </div>
         <div class="field">
-            <label>个人描述</label>
-            <input placeholder="Description" type="text">
+            <label>Motto</label>
+            <input placeholder="Motto" type="text">
         </div>
         <div class="field">
-            <label>手机号</label>
-            <input placeholder="Phone" type="text">
+            <label>Text</label>
+            <textarea></textarea>
         </div>
         <div class="field">
-            <label>地址信息</label>
-            <input placeholder="Address" type="text">
-        </div>
-        <div class="field">
-            <label>上传头像</label>
-            <input placeholder="Avatar" type="text">
+            <label>Short Text</label>
+            <textarea rows="2"></textarea>
         </div>
         <div class="field ui blue submit button fluid">Submit</div>
     </form>

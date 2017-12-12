@@ -308,5 +308,11 @@
     <select id="findAllUsers" resultType="com.beautifulsoup.bean.db.User">
         SELECT user.* from user
     </select>
+    <select id="getAllUsersCount" resultType="int">
+        select count(*) from user
+    </select>
+    <select id="listAllUsersByPage" parameterType="int" resultType="com.beautifulsoup.bean.db.User">
+        SELECT user.* from user limit #{pageNum},5
+    </select>
 
 </mapper>

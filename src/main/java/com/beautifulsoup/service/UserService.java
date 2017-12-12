@@ -10,7 +10,11 @@ import java.util.List;
 public interface UserService {
     User findUserByUsername(String username);
     User findUserByUid(Integer uid);
+    User updateUserByUid();
     int insertSelective(User record);
     int insert(User record);
     List<User> findAllUsers();
+
+    int getAllUsersCount();
+    List<User> listAllUsersByPage(Integer pageNum);
 }

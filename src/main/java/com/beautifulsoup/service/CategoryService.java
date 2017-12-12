@@ -11,4 +11,5 @@ public interface CategoryService {
     int insert(Category record);
     int insertSelective(Category record);
     List<Category> findAllCategories();
+    Category findCategoryById(Integer id);
 }

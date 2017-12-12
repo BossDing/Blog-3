@@ -20,27 +20,30 @@
         <a class="item" href="${pageContext.request.contextPath}/user/listall"><i class="home"></i> 用户管理 </a>
         <a class="item active" href="${pageContext.request.contextPath}/category/listall"><i class="block layout"></i> 文章分类 </a>
         <a class="item" href="${pageContext.request.contextPath}/article/listall"><i class="smile"></i> 所有文章 </a>
-        <a class="item"><i class="calendar "></i> 关于我们 </a>
+        <a class="item" href="${pageContext.request.contextPath}/about/creator"><i class="calendar "></i> 关于我们 </a>
     </div>
     <div class="pusher">
         <div class="ui basic segment">
             <div class="pusher dimmed">
                 <div class="ui basic segment">
 
-                    <table class="ui fixed table" style="width: 1200px;margin-top: 100px">
+                    <table class="ui fixed table right aligned" style="width: 1200px;margin-top: 100px">
                         <thead>
                             <tr>
-                                <th>Index</th>
-                                <th>文章类别</th>
+                                <th class="left aligned">文章类别</th>
                                 <th>类别描述</th>
+                                <th>文章操作</th>
                             </tr>
                         </thead>
                         <tbody>
                             <c:forEach items="${categories}" var="category">
                                 <tr>
-                                    <td>${category.id}</td>
                                     <td>${category.categoryName}</td>
                                     <td>${category.description}</td>
+                                    <td>
+                                        <a class="ui green basic button" href="${pageContext.request.contextPath}/category/update?id=${category.id}">修改</a>
+                                        <a class="ui red basic button" href="${pageContext.request.contextPath}/category/delete?id=${category.id}">删除</a>
+                                    </td>
                                 </tr>
                             </c:forEach>
                         </tbody>

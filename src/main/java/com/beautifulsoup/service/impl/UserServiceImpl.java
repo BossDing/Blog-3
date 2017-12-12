@@ -39,6 +39,11 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    @Override
+    public User updateUserByUid() {
+        return null;
+    }
+
 
     @Override
     public int insertSelective(User record) {
@@ -53,5 +58,23 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> findAllUsers() {
         return userMapper.findAllUsers();
+    }
+
+    @Override
+    public int getAllUsersCount() {
+        int count=userMapper.getAllUsersCount();
+        int result=1;
+        if (count%5==0){
+            result=count/5;
+        }else{
+            result=count/5+1;
+        }
+        return result;
+    }
+
+    @Override
+    public List<User> listAllUsersByPage(Integer pageNum) {
+        int pageNumCount=(pageNum-1)*5;
+        return userMapper.listAllUsersByPage(pageNumCount);
     }
 }

@@ -34,5 +34,10 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
+
+    int getAllUsersCount();
     List<User> findAllUsers();
+    List<User> listAllUsersByPage(Integer pageNum);
+
+
 }

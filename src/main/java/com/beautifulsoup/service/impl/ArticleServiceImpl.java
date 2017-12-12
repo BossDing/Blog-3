@@ -47,4 +47,9 @@ public class ArticleServiceImpl implements ArticleService {
        return articleMapper.listArticlesByPage(pageNumCount);
     }
 
+    @Override
+    public Article findArticleById(Integer id) {
+        return articleMapper.selectArticleById(id);
+    }
+
 }

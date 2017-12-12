@@ -5,6 +5,7 @@ import com.beautifulsoup.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -20,16 +21,21 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
+    @ModelAttribute("totalPage")
+    public int totalPage(){
+        int totalPage=articleService.getArticlesCount();
+        return totalPage;
+    }
+
     @RequestMapping(value = "/listall")
     public String listAllArticles(Model model){
 
-        int totalPage=articleService.getArticlesCount();
 
-        List<Article> articles=articleService.listArticlesByPage(0);
+
+        List<Article> articles=articleService.listArticlesByPage(1);
 
         model.addAttribute("articles",articles);
 
-        model.addAttribute("totalPage",totalPage);
         return "manage/manage-article";
     }
 
@@ -38,5 +44,12 @@ public class ArticleController {
         List<Article> articles=articleService.listArticlesByPage(pageNum);
         model.addAttribute("articles",articles);
         return "manage/manage-article";
+    }
+
+    @RequestMapping(value = "/update")
+    public String updateArticle(@RequestParam("id")Integer id,Model model){
+        Article article=articleService.findArticleById(id);
+        model.addAttribute("article",article);
+        return "manage/manage-article-update";
     }
 }

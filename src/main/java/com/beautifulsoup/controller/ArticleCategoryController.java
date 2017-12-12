@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -24,6 +25,15 @@ public class ArticleCategoryController {
         List<Category> categories=categoryService.findAllCategories();
         model.addAttribute("categories",categories);
         return "manage/manage-category";
+    }
+
+    @RequestMapping(value = "/update")
+    public String updateCategory(@RequestParam("id")Integer id,Model model){
+        Category category=categoryService.findCategoryById(id);
+        if (null!=category){
+            model.addAttribute("category",category);
+        }
+        return "manage/manage-category-update";
     }
 
 }

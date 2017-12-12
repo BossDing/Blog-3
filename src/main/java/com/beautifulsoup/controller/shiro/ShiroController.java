@@ -1,9 +1,11 @@
 package com.beautifulsoup.controller.shiro;
 
 import com.beautifulsoup.bean.db.User;
+import com.beautifulsoup.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,12 +14,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by BeautifulSoup on 2017/11/9.
  */
 @Controller
 public class ShiroController {
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/login")
     public String login() {
@@ -66,7 +72,9 @@ public class ShiroController {
             User user = (User) subject.getPrincipal();
 //            session.setAttribute("user", user);
             model.addAttribute("user",user);
-            return "index";
+            List<User> userList=userService.listAllUsersByPage(1);
+            model.addAttribute("users",userList);
+            return "redirect:/user/listall";
         } catch (Exception e) {
             return "login";
         }

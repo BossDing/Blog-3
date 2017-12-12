@@ -10,38 +10,37 @@
     <script type="text/javascript" src="/js/semantic.min.js"></script>
 </head>
 <body>
-
 <div style="width: 500px;height:700px;position: absolute;left: 50%;top: 50%;margin-left: -250px;margin-top: -350px">
     <div class="ui attached message">
-        <div class="header">Welcome to Edit!</div>
+        <div class="header">Welcome to Update!</div>
         <p>填写下面的表单来修改当前账户</p>
     </div>
     <form class="ui form attached fluid segment celled">
         <div class="two fields">
             <div class="field">
                 <label>用户名</label>
-                <input placeholder="Username" type="text">
+                <input placeholder="Username" type="text" value="${user.username}">
             </div>
             <div class="field">
                 <label>密码</label>
-                <input placeholder="Password" type="password">
+                <input placeholder="Password" type="password" value="${user.password}">
             </div>
         </div>
         <div class="field">
             <label>个人描述</label>
-            <input placeholder="Description" type="text">
+            <input placeholder="Description" type="text" value="${user.description}">
         </div>
         <div class="field">
             <label>手机号</label>
-            <input placeholder="Phone" type="text">
+            <input placeholder="Phone" type="text" value="${user.phone}">
         </div>
         <div class="field">
             <label>地址信息</label>
-            <input placeholder="Address" type="text">
+            <input placeholder="Address" type="text" value="${user.address}">
         </div>
         <div class="field">
-            <label>上传头像</label>
-            <input placeholder="Avatar" type="text">
+            <label>头像地址</label>
+            <input placeholder="Avatar" type="text" value="${user.avatar}">
         </div>
         <div class="field ui blue submit button fluid">Submit</div>
     </form>
