@@ -49,9 +49,9 @@
                                 <img src="/img/elliot.jpg">
                             </div>
                             <div class="content">
-                                <a class="header">潘盛东</a>
+                                <a class="header">BeautifulSoup</a>
                                 <div class="meta">
-                                    <span class="date">进行前端界面的设计与开发</span>
+                                    <span class="date">Where there is a challenge,there is a chance!</span>
                                 </div>
                             </div>
                             <div class="extra content">
@@ -72,9 +72,9 @@
                                 <img src="/img/elyse.png">
                             </div>
                             <div class="content">
-                                <a class="header">汲生源</a>
+                                <a class="header">BeautifulSoup</a>
                                 <div class="meta">
-                                    <span class="date">进行整体项目的规划和设计文档的编写</span>
+                                    <span class="date">能工摩形,巧匠窃意</span>
                                 </div>
                             </div>
                             <div class="extra content">
@@ -95,9 +95,9 @@
                                 <img src="/img/jenny.jpg">
                             </div>
                             <div class="content">
-                                <a class="header">翟铮永</a>
+                                <a class="header">BeautifulSoup</a>
                                 <div class="meta">
-                                    <span class="date">进行后台管理界面的编写开发</span>
+                                    <span class="date">Where there is a challenge,there is a chance!</span>
                                 </div>
                             </div>
                             <div class="extra content">
@@ -118,9 +118,9 @@
                                 <img src="/img/matthew.png">
                             </div>
                             <div class="content">
-                                <a class="header">王福运</a>
+                                <a class="header">BeautifulSoup</a>
                                 <div class="meta">
-                                    <span class="date">进行后台设计开发</span>
+                                    <span class="date">能工摩形,巧匠窃意</span>
                                 </div>
                             </div>
                             <div class="extra content">

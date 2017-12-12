@@ -33,7 +33,6 @@ public class UserServiceTest extends BlogApplicationTests{
     }
 
     @Test
-    @Ignore
     public void  testInsertSelective(){
         List<User> userList=new ArrayList<>();
         User user1=new User("Wangxiaohao","password","","万事起于忽微,量变引起质变",100,230,"13866974521","魔都");
@@ -67,6 +66,16 @@ public class UserServiceTest extends BlogApplicationTests{
 
     }
 
+    @Test
+    public void testDeleteFromUserById(){
+        int id=userService.deleteByPrimaryKey(21);
+        System.out.println(id);
+    }
 
+
+    @Test
+    public void testDeleteArticlesByUid(){
+        userService.deleteArticleByUserId(30);
+    }
 
 }

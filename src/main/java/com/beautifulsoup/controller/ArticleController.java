@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -51,5 +52,35 @@ public class ArticleController {
         Article article=articleService.findArticleById(id);
         model.addAttribute("article",article);
         return "manage/manage-article-update";
+    }
+
+    @RequestMapping(value = "/add")
+    public String addArticle(){
+        return "manage/manage-article-add";
+    }
+    @RequestMapping(value = "/deletebyid",method = RequestMethod.POST)
+    public String deleteArticle(@RequestParam("id")Integer id){
+        articleService.deleteByPrimaryKey(id);
+        return "manage/manage-article";
+    }
+
+    @RequestMapping(value = "/addarticle",method = RequestMethod.POST)
+    public String addArticleSubmit(Article article,Model model){
+        articleService.insertArticle(article);
+        List<Article> articles=articleService.listArticlesByPage(1);
+
+        model.addAttribute("articles",articles);
+
+        return "manage/manage-article";
+    }
+
+    @RequestMapping(value = "/updatearticle",method = RequestMethod.POST)
+    public String updateArticleSubmit(Article article,Model model){
+        articleService.updateByPrimaryKey(article);
+        List<Article> articles=articleService.listArticlesByPage(1);
+
+        model.addAttribute("articles",articles);
+
+        return "manage/manage-article";
     }
 }

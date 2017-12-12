@@ -52,4 +52,14 @@ public class ArticleServiceImpl implements ArticleService {
         return articleMapper.selectArticleById(id);
     }
 
+    @Override
+    public int deleteByPrimaryKey(Integer id) {
+        return articleMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public int updateByPrimaryKey(Article record) {
+        return articleMapper.updateByPrimaryKey(record);
+    }
+
 }

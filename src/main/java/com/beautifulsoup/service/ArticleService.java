@@ -13,4 +13,6 @@ public interface ArticleService {
     int insertArticle(Article article);
     List<Article> listArticlesByPage(Integer pageNum);
     Article findArticleById(Integer id);
+    int deleteByPrimaryKey(Integer id);
+    int updateByPrimaryKey(Article record);
 }

@@ -21,11 +21,10 @@ public class ArticleServiceTest extends BlogApplicationTests {
     private ArticleService articleService;
 
     @Test
-    @Ignore
     public void insertArticle(){
         Article article1=new Article("EventBus使用详解(一)","EventBus是一款针对Android优化的发布/订阅事件总线。主要功能是替代Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间传递消息.优点是开销小，代码更优雅。以及将发送者和接收者解耦。",
         "EventBus是一款针对Android优化的发布/订阅事件总线。主要功能是替代Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间传递消息.优点是开销小，代码更优雅。以及将发送者和接收者解耦。"
-        ,"224",3,2,new Date(),"给大家装简单演示了EventBus的onEventMainThread（）函数的接收，其实EventBus还有另外有个不同的函数，他们分别是：\n" +
+        ,"224",6,6,new Date(),"给大家装简单演示了EventBus的onEventMainThread（）函数的接收，其实EventBus还有另外有个不同的函数，他们分别是：\n" +
                 "\n" +
                 "1、onEvent\n" +
                 "2、onEventMainThread\n" +
@@ -40,7 +39,7 @@ public class ArticleServiceTest extends BlogApplicationTests {
                 "onEventBackground:如果使用onEventBackgrond作为订阅函数，那么如果事件是在UI线程中发布出来的，那么onEventBackground就会在子线程中运行，如果事件本来就是子线程中发布出来的，那么onEventBackground函数直接在该子线程中执行。\n" +
                 "onEventAsync：使用这个函数作为订阅函数，那么无论事件在哪个线程发布，都会创建新的子线程在执行onEventAsync.");
 
-        Article article2=new Article("Android5.0之NavigationView的使用方式","Android5.0之MaterialDesign的NavigationView的使用方式","导航菜单的制作方式多种多样，网上也有各种炫酷效果的具体实现方式，那么今天我主要是想来说说Google在Android5.0之后推出的NavigationView的具体使用方式。","156",3,1,new Date(),"OK，看完了图，接下来我们就来说说这个NavigationView吧。\n" +
+        Article article2=new Article("Android5.0之NavigationView的使用方式","Android5.0之MaterialDesign的NavigationView的使用方式","导航菜单的制作方式多种多样，网上也有各种炫酷效果的具体实现方式，那么今天我主要是想来说说Google在Android5.0之后推出的NavigationView的具体使用方式。","156",6,6,new Date(),"OK，看完了图，接下来我们就来说说这个NavigationView吧。\n" +
                 "1.NavigationView是什么\n" +
                 "\n" +
                 "long long ago，我们做抽屉菜单的时候，左边滑出来的那一部分的布局都是由我们自己来定义的，自己写的话，花点时间也能做出来好看的侧拉菜单，但总是要耗费时间，于是Google在5.0之后推出了NavitationView，就是我们左边滑出来的那个菜单。这个菜单整体上分为两部分，上面一部分叫做HeaderLayout，下面的那些点击项都是menu，这样的效果如果我们要自己写肯定也能写出来，但是没有必要，既然Google提供了这个控件，那我们就来看看这个控件要怎么用吧。\n" +
@@ -135,7 +134,7 @@ public class ArticleServiceTest extends BlogApplicationTests {
                 "    </menu>  ");
         Article article3=new Article("如何利用TensorFlow来训练聊天机器人","训练聊天机器人。",
                 "实际工程中很少有直接用深度学习实现端对端的聊天机器人，但这里我们来看看怎么用深度学习的seq2seq模型来实现一个简易的聊天机器人。这篇文章将尝试使用TensorFlow来训练一个基于seq2seq的聊天机器人，实现根据语料库的训练让机器人回答问题。"
-                ,"330",5,12,new Date(),"seq2seq\n" +
+                ,"330",6,30,new Date(),"seq2seq\n" +
                 "\n" +
                 "关于seq2seq的机制原理可看之前的文章《深度学习的seq2seq模型》。\n" +
                 "\n" +
@@ -225,7 +224,7 @@ public class ArticleServiceTest extends BlogApplicationTests {
         Article article4=new Article("分布式系统调用链监控","分布式系统调用链监控",
                 "应用架构由集中式向分布式演进后，整个调用关系变得复杂。\n" +
                         "分布式架构由复杂且较大规模集群构成，各个应用之间相当独立，可能由不同团队、不同语言实现。\n"
-                ,"160",2,2,new Date(),"一个请求完整的调用链可能如下图，经过多个系统服务，调用关系复杂。\n" +
+                ,"160",6,9,new Date(),"一个请求完整的调用链可能如下图，经过多个系统服务，调用关系复杂。\n" +
                 "\n" +
                 "这里写图片描述\n" +
                 "\n" +
@@ -253,7 +252,7 @@ public class ArticleServiceTest extends BlogApplicationTests {
                 "7. 要查看某次完整的调用则只要根据TraceID查出所有调用记录，然后通过parent id和span id组织起整个调用父子关系。");
         Article article5=new Article(" Java Develop——基于 Redis 的分布式锁 ","Java Develop——基于 Redis 的分布式锁 ",
                 "分布式锁应用场景都是用在高并发，大流量场景。."
-                ,"160",4,3,new Date(),"1.用Apache ab压测模拟并发\n" +
+                ,"160",4,30,new Date(),"1.用Apache ab压测模拟并发\n" +
                 "\n" +
                 "ab 的使用非常简单：\n" +
                 "\n" +
@@ -385,7 +384,7 @@ public class ArticleServiceTest extends BlogApplicationTests {
                 "到此就完成了分布式锁的处理。");
         Article article6=new Article("EventBus使用详解(一)","EventBus是一款针对Android优化的发布/订阅事件总线。主要功能是替代Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间传递消息.优点是开销小，代码更优雅。以及将发送者和接收者解耦。",
                 "EventBus是一款针对Android优化的发布/订阅事件总线。主要功能是替代Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间传递消息.优点是开销小，代码更优雅。以及将发送者和接收者解耦。"
-                ,"224",3,12,new Date(),"给大家装简单演示了EventBus的onEventMainThread（）函数的接收，其实EventBus还有另外有个不同的函数，他们分别是：\n" +
+                ,"224",6,9,new Date(),"给大家装简单演示了EventBus的onEventMainThread（）函数的接收，其实EventBus还有另外有个不同的函数，他们分别是：\n" +
                 "\n" +
                 "1、onEvent\n" +
                 "2、onEventMainThread\n" +
@@ -400,7 +399,7 @@ public class ArticleServiceTest extends BlogApplicationTests {
                 "onEventBackground:如果使用onEventBackgrond作为订阅函数，那么如果事件是在UI线程中发布出来的，那么onEventBackground就会在子线程中运行，如果事件本来就是子线程中发布出来的，那么onEventBackground函数直接在该子线程中执行。\n" +
                 "onEventAsync：使用这个函数作为订阅函数，那么无论事件在哪个线程发布，都会创建新的子线程在执行onEventAsync.");
 
-        Article article7=new Article("Android5.0之NavigationView的使用方式","Android5.0之MaterialDesign的NavigationView的使用方式","导航菜单的制作方式多种多样，网上也有各种炫酷效果的具体实现方式，那么今天我主要是想来说说Google在Android5.0之后推出的NavigationView的具体使用方式。","156",3,7,new Date(),"OK，看完了图，接下来我们就来说说这个NavigationView吧。\n" +
+        Article article7=new Article("Android5.0之NavigationView的使用方式","Android5.0之MaterialDesign的NavigationView的使用方式","导航菜单的制作方式多种多样，网上也有各种炫酷效果的具体实现方式，那么今天我主要是想来说说Google在Android5.0之后推出的NavigationView的具体使用方式。","156",3,30,new Date(),"OK，看完了图，接下来我们就来说说这个NavigationView吧。\n" +
                 "1.NavigationView是什么\n" +
                 "\n" +
                 "long long ago，我们做抽屉菜单的时候，左边滑出来的那一部分的布局都是由我们自己来定义的，自己写的话，花点时间也能做出来好看的侧拉菜单，但总是要耗费时间，于是Google在5.0之后推出了NavitationView，就是我们左边滑出来的那个菜单。这个菜单整体上分为两部分，上面一部分叫做HeaderLayout，下面的那些点击项都是menu，这样的效果如果我们要自己写肯定也能写出来，但是没有必要，既然Google提供了这个控件，那我们就来看看这个控件要怎么用吧。\n" +
@@ -495,7 +494,7 @@ public class ArticleServiceTest extends BlogApplicationTests {
                 "    </menu>  ");
         Article article8=new Article("如何利用TensorFlow来训练聊天机器人","训练聊天机器人。",
                 "实际工程中很少有直接用深度学习实现端对端的聊天机器人，但这里我们来看看怎么用深度学习的seq2seq模型来实现一个简易的聊天机器人。这篇文章将尝试使用TensorFlow来训练一个基于seq2seq的聊天机器人，实现根据语料库的训练让机器人回答问题。"
-                ,"330",5,4,new Date(),"seq2seq\n" +
+                ,"330",6,7,new Date(),"seq2seq\n" +
                 "\n" +
                 "关于seq2seq的机制原理可看之前的文章《深度学习的seq2seq模型》。\n" +
                 "\n" +
@@ -585,7 +584,7 @@ public class ArticleServiceTest extends BlogApplicationTests {
         Article article9=new Article("分布式系统调用链监控","分布式系统调用链监控",
                 "应用架构由集中式向分布式演进后，整个调用关系变得复杂。\n" +
                         "分布式架构由复杂且较大规模集群构成，各个应用之间相当独立，可能由不同团队、不同语言实现。\n"
-                ,"160",2,5,new Date(),"一个请求完整的调用链可能如下图，经过多个系统服务，调用关系复杂。\n" +
+                ,"160",6,3,new Date(),"一个请求完整的调用链可能如下图，经过多个系统服务，调用关系复杂。\n" +
                 "\n" +
                 "这里写图片描述\n" +
                 "\n" +
@@ -613,7 +612,7 @@ public class ArticleServiceTest extends BlogApplicationTests {
                 "7. 要查看某次完整的调用则只要根据TraceID查出所有调用记录，然后通过parent id和span id组织起整个调用父子关系。");
         Article article10=new Article(" Java Develop——基于 Redis 的分布式锁 ","Java Develop——基于 Redis 的分布式锁 ",
                 "分布式锁应用场景都是用在高并发，大流量场景。."
-                ,"160",4,6,new Date(),"1.用Apache ab压测模拟并发\n" +
+                ,"160",6,4,new Date(),"1.用Apache ab压测模拟并发\n" +
                 "\n" +
                 "ab 的使用非常简单：\n" +
                 "\n" +
@@ -768,5 +767,11 @@ public class ArticleServiceTest extends BlogApplicationTests {
         for (Article article:articles){
             System.out.println(ReflectionToStringBuilder.toString(article, ToStringStyle.MULTI_LINE_STYLE));
         }
+    }
+
+    @Test
+    public void testfindArticleById(){
+        Article article=articleService.findArticleById(1);
+        System.out.println(ReflectionToStringBuilder.toString(article,ToStringStyle.MULTI_LINE_STYLE));
     }
 }

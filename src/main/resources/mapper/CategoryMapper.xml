@@ -184,4 +184,31 @@
      SELECT category.id id,category.category_name categoryName,category.description description FROM category
   </select>
 
+
+
+  <resultMap id="getCategoryCustom" type="com.beautifulsoup.bean.vo.UserCustom">
+      <id property="id" column="cid"/>
+      <result property="categoryName" column="category_name"/>
+      <result property="description" column="cdescription"/>
+    <collection property="articleSet" ofType="com.beautifulsoup.bean.db.Article">
+      <id property="id" column="id"/>
+      <result property="title" column="title"/>
+      <result property="subtitle" column="subtitle"/>
+      <result property="description" column="description"/>
+      <result property="stars" column="stars"/>
+      <result property="categoryId" column="category_id"/>
+      <result property="authorId" column="author_id"/>
+      <result property="createTime" column="create_time"/>
+      <result property="imgUrl" column="img_url"/>
+    </collection>
+  </resultMap>
+
+  <select id="findCategoryCustomById" parameterType="int" resultMap="getCategoryCustom">
+    select c.id cid,c.category_name,c.description cdescription,a.* from category c LEFT JOIN article a on a.category_id=c.id where c.id = #{id}
+  </select>
+
+
+  <delete id="deleteArticleByCategoryId" parameterType="int">
+    delete from article where article.category_id = #{id}
+  </delete>
 </mapper>

@@ -12,8 +12,8 @@ public class User {
     private String password;
     private String avatar;
     private String description;
-    private Integer follow;
-    private Integer followed;
+    private Integer follow=200;
+    private Integer followed=123;
     private String phone;
     private String address;
     private Set<Role> roles=new HashSet<>();
@@ -111,6 +111,8 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+
 
     @Override
     public String toString() {

@@ -2,6 +2,7 @@ package com.beautifulsoup.mapper;
 
 import com.beautifulsoup.bean.db.User;
 import com.beautifulsoup.bean.db.UserExample;
+import com.beautifulsoup.bean.vo.UserCustom;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -39,5 +40,8 @@ public interface UserMapper {
     List<User> findAllUsers();
     List<User> listAllUsersByPage(Integer pageNum);
 
+    List<UserCustom> findUserCustomsByUid(Integer uid);
+
+    void deleteArticleByUserId(int uid);
 
 }

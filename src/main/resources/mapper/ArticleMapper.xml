@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.beautifulsoup.mapper.ArticleMapper">
   <sql id="Base_Column_List">
-    id,title,subtitle,description,content,img_url,stars,category_id,author_id,create_time
+    id,title,subtitle,description,content,img_url imgUrl,stars,category_id categoryId,author_id authorId,create_time createTime
   </sql>
 
   <select id="findAllArticles" resultType="com.beautifulsoup.bean.db.Article">
@@ -25,4 +25,36 @@
     values
     (#{title},#{subtitle},#{description},#{imgUrl},#{stars},#{categoryId},#{authorId},#{createTime},#{content})
   </insert>
+  <update id="updateByPrimaryKey" parameterType="com.beautifulsoup.bean.db.Article" >
+    update article
+    set title = #{title,jdbcType=VARCHAR},
+    subtitle = #{subtitle,jdbcType=VARCHAR},
+    description = #{description,jdbcType=VARCHAR},
+    img_url = #{imgUrl,jdbcType=VARCHAR},
+    stars = #{stars,jdbcType=VARCHAR},
+    category_id = #{categoryId,jdbcType=INTEGER},
+    author_id = #{authorId,jdbcType=INTEGER},
+    create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from article
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <resultMap id="getArticleCustom" type="com.beautifulsoup.bean.vo.ArticleCustom">
+      <id column="id" property="id"/>
+      <result column="title" property="title"/>
+      <result column="subtitle" property="subtitle"/>
+      <result column="description" property="description"/>
+      <result column="category_id" property="categoryId"/>
+      <association property="user" javaType="com.beautifulsoup.bean.db.User">
+          <id property="uid" column="author_id"/>
+          <result property="username" column="uname"/>
+          <result property="description" column="udescription"/>
+      </association>
+  </resultMap>
+  <select id="findArticleCustomById" parameterType="int" resultMap="getArticleCustom">
+      select u.uid,u.username uname,u.description udescription,a.* from article a left join user u on a.author_id = u.uid where a.id= #{id}
+  </select>
 </mapper>

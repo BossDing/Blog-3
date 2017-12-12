@@ -9,7 +9,16 @@ import java.util.List;
  */
 public interface CategoryService {
     int insert(Category record);
+
     int insertSelective(Category record);
+
     List<Category> findAllCategories();
+
     Category findCategoryById(Integer id);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int updateByPrimaryKey(Category record);
+
+    void deleteArticleByCategoryId(int uid);
 }

@@ -9,17 +9,30 @@
     <link rel="stylesheet" href="/css/semantic.min.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/semantic.min.js"></script>
+    <script type="text/javascript" src="/js/layer.js"></script>
 </head>
 <body>
-
+<div class="ui small modal">
+    <h3 class="ui red header">删除警告</h3>
+    <div class="image content">
+        <img class="image">
+        <div class="description">
+            <p>
+                您确定要删除?
+            </p>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui approve red button">删除</div>
+        <div class="ui cancel green button">取消</div>
+    </div>
+</div>
 
 <div class="ui bottom attached segment pushable">
-
     <div class="ui visible left vertical sidebar menu pink" style="padding-top: 50px">
         <h2 class="ui top header" style="margin-left: 11px">EBlog Console</h2>
         <a class="item active" href="${pageContext.request.contextPath}/user/listall"><i class="home"></i> 用户管理 </a>
-        <a class="item" href="${pageContext.request.contextPath}/category/listall"><i class="block layout"></i> 文章分类
-        </a>
+        <a class="item" href="${pageContext.request.contextPath}/category/listall"><i class="block layout"></i> 文章分类</a>
         <a class="item" href="${pageContext.request.contextPath}/article/listall"><i class="smile"></i> 所有文章 </a>
         <a class="item" href="${pageContext.request.contextPath}/about/creator"><i class="calendar "></i> 关于我们 </a>
     </div>
@@ -27,6 +40,7 @@
         <div class="ui basic segment">
             <div class="pusher dimmed">
                 <div class="ui basic segment">
+                    <a class="ui positive basic button right floated" style="position: absolute;right: 280px;top: 50px" href="${pageContext.request.contextPath}/user/add">添加用户</a>
                     <table class="ui padded celled right aligned table center" style="width: 1200px;margin-top: 80px">
                         <thead>
                         <th class="left aligned">用户名</th>
@@ -46,7 +60,7 @@
                                 <td>${user.follow}</td>
                                 <td>
                                     <a class="ui green basic button" href="${pageContext.request.contextPath}/user/update?uid=${user.uid}">修改</a>
-                                    <a class="ui red basic button" href="${pageContext.request.contextPath}/user/delete?uid=${user.uid}">删除</a>
+                                    <a id="deleteuser" class="ui red basic button" onclick="deleteUser(${user.uid})">删除</a>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -67,9 +81,36 @@
             </div>
         </div>
     </div>
-
 </div>
 
+
+<script>
+    function deleteUser(uid) {
+            $('.ui.small.modal')
+                .modal({
+                    blurring:true,
+                    onDeny:function () {
+                        return true;
+                    },
+                    onApprove:function () {
+                       $.post("${pageContext.request.contextPath}/user/deletebyid",{uid:uid},function (data,status) {
+                           if (status==="success"){
+                               layer.msg("删除成功",{
+                                   time:1000
+                               })
+
+                           }else{
+                               layer.msg("删除失败",{
+                                   time:1000
+                               })
+                           }
+
+                       })
+                    }
+                })
+                .modal('show');
+    }
+</script>
 
 </body>
 </html>

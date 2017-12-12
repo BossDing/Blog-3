@@ -4,6 +4,7 @@ import com.beautifulsoup.bean.db.Category;
 import com.beautifulsoup.bean.db.CategoryExample;
 import java.util.List;
 
+import com.beautifulsoup.bean.vo.UserCustom;
 import org.apache.ibatis.annotations.Param;
 
 public interface CategoryMapper {
@@ -30,4 +31,8 @@ public interface CategoryMapper {
     int updateByPrimaryKey(Category record);
 
     List<Category> findAllCategories();
+
+    UserCustom findCategoryCustomById(Integer id);
+    void deleteArticleByCategoryId(int id);
+
 }

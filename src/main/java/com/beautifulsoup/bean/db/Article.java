@@ -13,13 +13,13 @@ public class Article {
 
     private String imgUrl;
 
-    private String stars;
+    private String stars="164";
 
     private Integer categoryId;
 
-    private Integer authorId;
+    private Integer authorId=5;
 
-    private Date createTime;
+    private Date createTime=new Date();
 
     private String content;
 
@@ -115,5 +115,21 @@ public class Article {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", subtitle='" + subtitle + '\'' +
+                ", description='" + description + '\'' +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", stars='" + stars + '\'' +
+                ", categoryId=" + categoryId +
+                ", authorId=" + authorId +
+                ", createTime=" + createTime +
+                ", content='" + content + '\'' +
+                '}';
     }
 }

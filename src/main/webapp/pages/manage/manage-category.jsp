@@ -9,10 +9,25 @@
     <link rel="stylesheet" href="/css/semantic.min.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/semantic.min.js"></script>
+    <script type="text/javascript" src="/js/layer.js"></script>
 </head>
 <body>
 
-
+<div class="ui small modal">
+    <h3 class="ui red header">删除警告</h3>
+    <div class="image content">
+        <img class="image">
+        <div class="description">
+            <p>
+                您确定要删除?
+            </p>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui approve red button">删除</div>
+        <div class="ui cancel green button">取消</div>
+    </div>
+</div>
 <div class="ui bottom attached segment pushable">
 
     <div class="ui visible left vertical sidebar menu pink" style="padding-top: 50px">
@@ -26,7 +41,7 @@
         <div class="ui basic segment">
             <div class="pusher dimmed">
                 <div class="ui basic segment">
-
+                    <a class="ui positive basic button right floated" style="position: absolute;right: 280px;top: 50px" href="${pageContext.request.contextPath}/category/add">添加分类</a>
                     <table class="ui fixed table right aligned" style="width: 1200px;margin-top: 100px">
                         <thead>
                             <tr>
@@ -38,11 +53,11 @@
                         <tbody>
                             <c:forEach items="${categories}" var="category">
                                 <tr>
-                                    <td>${category.categoryName}</td>
+                                    <td class="left aligned">${category.categoryName}</td>
                                     <td>${category.description}</td>
                                     <td>
                                         <a class="ui green basic button" href="${pageContext.request.contextPath}/category/update?id=${category.id}">修改</a>
-                                        <a class="ui red basic button" href="${pageContext.request.contextPath}/category/delete?id=${category.id}">删除</a>
+                                        <a class="ui red basic button" onclick="deleteCategory(${category.id})">删除</a>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -57,6 +72,32 @@
 
 </div>
 
+<script>
+    function deleteCategory(id) {
+        $('.ui.small.modal')
+            .modal({
+                blurring:true,
+                onDeny:function () {
+                    return true;
+                },
+                onApprove:function () {
+                    $.post("${pageContext.request.contextPath}/category/deletebyid",{id:id},function (data,status) {
+                        if (status==="success"){
+                            layer.msg("删除成功",{
+                                time:1000
+                            })
 
+                        }else{
+                            layer.msg("删除失败",{
+                                time:1000
+                            })
+                        }
+
+                    })
+                }
+            })
+            .modal('show');
+    }
+</script>
 </body>
 </html>

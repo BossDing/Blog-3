@@ -1,11 +1,15 @@
 package com.beautifulsoup.bean.db;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Category {
     private Integer id;
 
     private String categoryName;
 
     private String description;
+
 
     public Category() {
     }
@@ -39,4 +43,5 @@ public class Category {
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
     }
+
 }

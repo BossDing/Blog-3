@@ -1,11 +1,14 @@
 package com.beautifulsoup.controller;
 
+import com.beautifulsoup.bean.db.Article;
 import com.beautifulsoup.bean.db.User;
+import com.beautifulsoup.bean.vo.UserCustom;
 import com.beautifulsoup.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -59,10 +62,40 @@ public class UserController {
         return "manage/manage-user";
     }
 
+    @RequestMapping(value = "/add")
+    public String addUser(){
+        return "manage/manage-user-add";
+    }
+
     @RequestMapping(value = "/update")
     public String updateUser(@RequestParam("uid")Integer uid,Model model){
         User user=userService.findUserByUid(uid);
         model.addAttribute("user",user);
         return "manage/manage-user-update";
+    }
+
+    @RequestMapping(value = "/deletebyid",method = RequestMethod.POST)
+    public String deleteUser(@RequestParam("uid")Integer uid,RedirectAttributes model){
+        userService.deleteArticleByUserId(uid);
+        int deleteCount=userService.deleteByPrimaryKey(uid);
+        model.addAttribute("deleteCount",deleteCount);
+        return "manage/manage-user";
+    }
+
+    @RequestMapping(value = "/adduser",method = RequestMethod.POST)
+    public String addUserSubmit(User user,Model model){
+        int successId=userService.insertSelective(user);
+        model.addAttribute("successId",successId);
+        List<User> userList=userService.listAllUsersByPage(1);
+        model.addAttribute("users",userList);
+        return "manage/manage-user";
+    }
+
+    @RequestMapping(value = "/updateuser",method = RequestMethod.POST)
+    public String updateUserSubmit(User user,Model model){
+        userService.updateByPrimaryKey(user);
+        List<User> userList=userService.listAllUsersByPage(1);
+        model.addAttribute("users",userList);
+        return "manage/manage-user";
     }
 }
